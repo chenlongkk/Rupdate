@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation group: 'com.android.tools.ddms', name: 'ddmlib', version: '26.1.3'
+    api project(":common")
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+task runApp(type: JavaExec) {
+//    FileCollection aspectsPath = project.files("/home/chenlong/Desktop/java/aspectJTest/aspectJ/build/aspects/classes");
+    classpath = sourceSets.main.runtimeClasspath
+    print classpath.getAsPath()
+    main = 'com.cck.debug.request.Test'
+
+
+    // arguments to pass to the application
+    args 'test'
+}

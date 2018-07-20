@@ -1,0 +1,40 @@
+<idea-plugin>
+    <id>com.cck.debug.rupdate</id>
+    <name>RUpdate</name>
+    <vendor email="chenwill4you@live.com" url="chenlongkk.com">chenlongkk</vendor>
+
+    <description><![CDATA[
+     强制RePlugin更新插件
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <idea-version since-build="141.0"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Note: the action id "Android.HotswapChanges" is used in HotswapAction to determine the current shortcut. -->
+        <action id="RUpdatePlugin_Update_Action"
+                class="com.cck.debug.update.UpdateAction"
+        >
+            <!--<add-to-group group-id="RunMenu" anchor="first"/>-->
+            <add-to-group group-id="ToolbarRunGroup" anchor="after" relative-to-action="RunnerActions"/>
+        </action>
+
+        <action id="RUpdatePlugin_Build_Action"
+                class="com.cck.debug.update.BuildAction"
+        >
+            <!--<add-to-group group-id="RunMenu" anchor="first"/>-->
+            <add-to-group group-id="ToolbarRunGroup" anchor="after" relative-to-action="RUpdatePlugin_Update_Action"/>
+        </action>
+        <!--<action id="cckTest" class="com.cck.debug.update.TestAction" text="cckTestAction" description="test33">-->
+            <!--<add-to-group group-id="RunMenu" anchor="first"/>-->
+        <!--</action>-->
+    </actions>
+</idea-plugin>
